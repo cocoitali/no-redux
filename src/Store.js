@@ -2,7 +2,10 @@ import React from 'react'
 
 export const Store = React.createContext();
 
-const initialState = {}
+const initialState = {
+    episodes: [],
+    favourites: []
+  };
 
 function reducer() {}
 
