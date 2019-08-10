@@ -14,6 +14,12 @@ export default function App() {
     });
   };
 
+  const toggleFavAction = episode =>
+  dispatch({
+    type: 'ADD_FAV',
+    payload: episode
+  });
+
   React.useEffect(() => {
     //similar to componentDidMount
     state.episodes.length === 0 && fetchDataAction();
@@ -22,7 +28,7 @@ export default function App() {
   return (
     <React.Fragment>
       {console.log(state)}
-      <div className = "header">
+      <div className="header">
         <h1>Rick and Morty</h1>
         <p>Pick your favourite episodes</p>
       </div>
@@ -39,6 +45,9 @@ export default function App() {
                 <div>
                   Season: {episode.season} Number: {episode.number}
                 </div>
+                <button type="button" onClick={() => toggleFavAction(episode)}>
+                  Fav
+                </button>
               </section>
             </section>
           );
