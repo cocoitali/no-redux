@@ -22,28 +22,28 @@ export default function App() {
   return (
     <React.Fragment>
       {console.log(state)}
-      <div>
+      <div className = "header">
         <h1>Rick and Morty</h1>
         <p>Pick your favourite episodes</p>
-        <section>
-          {state.episodes.map(episode => {
-            return (
-              <section key={episode.id}>
-                <img
-                  src={episode.image.medium}
-                  alt={`Rick and Morty ${episode.name}`}
-                />
-                <div>{episode.name}</div>
-                <section>
-                  <div>
-                    Season: {episode.season} Number: {episode.number}
-                  </div>
-                </section>
-              </section>
-            );
-          })}
-        </section>
       </div>
+      <section className="episode-layout">
+        {state.episodes.map(episode => {
+          return (
+            <section key={episode.id} className="episode-box">
+              <img
+                src={episode.image.medium}
+                alt={`Rick and Morty ${episode.name}`}
+              />
+              <div>{episode.name}</div>
+              <section>
+                <div>
+                  Season: {episode.season} Number: {episode.number}
+                </div>
+              </section>
+            </section>
+          );
+        })}
+      </section>
     </React.Fragment>
   );
 }
